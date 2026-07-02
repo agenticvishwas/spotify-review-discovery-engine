@@ -81,10 +81,12 @@ if mode == "Insight":
                 st.divider()
                 st.subheader(f"Lineage: Supporting Clusters ({len(cluster_ids)})")
                 st.caption("Insight → Clusters → Reviews")
+                all_clusters = fetch_clusters()
+                cluster_label_map = {c["id"]: c.get("label") or c["id"][:16] for c in all_clusters}
                 for cid in cluster_ids[:5]:
                     cluster_evidence = fetch_cluster_evidence(cid, limit=3)
-                    label = cid[:16] + "…"
-                    with st.expander(f"Cluster {label}"):
+                    label = cluster_label_map.get(cid, cid[:16] + "…")
+                    with st.expander(label):
                         for ev in cluster_evidence:
                             st.markdown(
                                 f"> *{ev['verbatim']}*  \n"

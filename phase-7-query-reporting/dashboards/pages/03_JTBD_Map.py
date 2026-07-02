@@ -1,5 +1,6 @@
 """Page 3 — JTBD Map: jobs-to-be-done profiles and gap analysis."""
 from __future__ import annotations
+import json
 import sys
 from pathlib import Path
 
@@ -70,5 +71,17 @@ if selected != "(none)":
     col3.metric("Est. Reviews", row.get("frequency_estimate", "—"))
     if row.get("gap_description"):
         st.markdown(f"**Gap description:** {row['gap_description']}")
-    if row.get("user_segments"):
-        st.markdown(f"**Relevant segments:** {row['user_segments']}")
+    raw_segs = row.get("user_segments")
+    if raw_segs:
+        try:
+            seg_list = json.loads(raw_segs) if isinstance(raw_segs, str) else raw_segs
+        except (json.JSONDecodeError, TypeError):
+            seg_list = [raw_segs]
+        _SEG_LABELS = {
+            "power_user": "Power User", "casual": "Casual Listener",
+            "new": "New User", "churned": "Churned User",
+            "unknown": "Unclassified", "all": "All Segments",
+        }
+        readable = ", ".join(_SEG_LABELS.get(s, s.replace("_", " ").title()) for s in seg_list if s)
+        if readable:
+            st.markdown(f"**Relevant segments:** {readable}")
