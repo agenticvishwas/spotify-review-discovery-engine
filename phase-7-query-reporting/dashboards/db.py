@@ -17,6 +17,16 @@ _DEFAULT_DB = (
     Path(__file__).parent.parent.parent / "phase-6-storage" / "data" / "knowledge_base.db"
 )
 
+# Phase 5 writes "..." as a sentinel when LLM generation fails.
+# Strip it before rendering so PMs don't see raw failure tokens.
+def clean_description(text: str | None) -> str | None:
+    if not text:
+        return None
+    stripped = text.lstrip(".").strip()
+    if not stripped or stripped in ("Theme labeling failed", "LLM description unavailable"):
+        return None
+    return stripped
+
 
 @st.cache_resource
 def get_connection(db_path: str | None = None) -> sqlite3.Connection:

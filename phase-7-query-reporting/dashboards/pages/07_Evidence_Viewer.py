@@ -13,6 +13,7 @@ from dashboards.db import (
     fetch_insight_evidence,
     fetch_cluster_evidence,
     get_connection,
+    clean_description,
 )
 
 st.set_page_config(page_title="Evidence Viewer", layout="wide")
@@ -51,7 +52,9 @@ if mode == "Insight":
             c3.metric("Type", ins.get("insight_type", "—"))
             c4.metric("Segment", ins.get("affected_segment") or "—")
 
-            st.markdown(f"**Description:** {ins.get('description', '')}")
+            desc = clean_description(ins.get("description"))
+            if desc:
+                st.markdown(f"**Description:** {desc}")
             if ins.get("reasoning"):
                 st.markdown(f"**Reasoning:** {ins['reasoning']}")
             if ins.get("trend_direction"):

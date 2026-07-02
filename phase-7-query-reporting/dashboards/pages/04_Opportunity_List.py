@@ -9,7 +9,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from dashboards.db import fetch_insights, fetch_insight_evidence
+from dashboards.db import fetch_insights, fetch_insight_evidence, clean_description
 
 st.set_page_config(page_title="Opportunity List", layout="wide")
 st.title("Opportunity List")
@@ -106,7 +106,9 @@ if selected != "(none)":
             f"| **Segment:** {_pretty_seg(ins.get('affected_segment'))} "
             f"| **Confidence:** {(ins.get('confidence') or '—').title()}"
         )
-        st.markdown(f"**Description:** {ins.get('description', '')}")
+        desc = clean_description(ins.get("description"))
+        if desc:
+            st.markdown(f"**Description:** {desc}")
         if ins.get("reasoning"):
             st.caption(f"Reasoning: {ins['reasoning']}")
 
