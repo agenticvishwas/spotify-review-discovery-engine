@@ -4,6 +4,7 @@ All functions use st.cache_resource / st.cache_data so the SQLite connection
 is shared across reruns and query results are cached with a short TTL.
 """
 from __future__ import annotations
+import json
 import os
 import sqlite3
 from pathlib import Path
@@ -164,9 +165,27 @@ def fetch_insight_evidence(insight_id: str, _db: str | None = None) -> dict:
            WHERE ir.insight_id = ?""",
         (insight_id,),
     ).fetchall()
+    verbatims = [dict(r) for r in reviews if r["verbatim"]]
+
+    # Fallback: insight_reviews.verbatim was stored as NULL by the original
+    # Phase 6 loader — read verbatim text from insights.supporting_verbatims instead.
+    if not verbatims:
+        row = conn.execute(
+            "SELECT supporting_verbatims FROM insights WHERE id = ?", (insight_id,)
+        ).fetchone()
+        if row and row[0]:
+            try:
+                texts = json.loads(row[0])
+                verbatims = [
+                    {"verbatim": t, "platform": "", "normalized_rating": None, "published_at": None}
+                    for t in texts if t
+                ]
+            except (json.JSONDecodeError, TypeError):
+                pass
+
     return {
         "cluster_ids": [r[0] for r in clusters],
-        "verbatims": [dict(r) for r in reviews if r["verbatim"]],
+        "verbatims": verbatims,
     }
 
 
