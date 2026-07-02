@@ -153,8 +153,8 @@ if run and question:
                 for row in step["rows"][:5]:
                     text = (
                         row.get("verbatim") or row.get("clean_text") or
-                        row.get("title") or row.get("job_statement") or
-                        row.get("document") or str(row.get("id", ""))
+                        row.get("title") or row.get("label") or row.get("segment_label") or
+                        row.get("job_statement") or row.get("document") or ""
                     )
                     platform = row.get("platform", "")
                     st.markdown(f"• {text[:200]}" + (f" *({platform})*" if platform else ""))

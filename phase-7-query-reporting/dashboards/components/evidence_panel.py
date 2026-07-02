@@ -3,16 +3,18 @@ from __future__ import annotations
 import streamlit as st
 
 
-def evidence_panel(evidence: dict, title: str = "Evidence") -> None:
-    """Render cluster_ids + verbatims for an insight."""
+def evidence_panel(evidence: dict, title: str = "Evidence", cluster_label_map: dict | None = None) -> None:
+    """Render cluster labels + verbatims for an insight."""
     verbatims = evidence.get("verbatims", [])
     cluster_ids = evidence.get("cluster_ids", [])
 
     st.subheader(title)
 
     if cluster_ids:
-        st.caption(f"Linked clusters: {', '.join(cluster_ids[:5])}" +
-                   (f" + {len(cluster_ids) - 5} more" if len(cluster_ids) > 5 else ""))
+        _map = cluster_label_map or {}
+        names = [_map.get(cid, cid[:8]) for cid in cluster_ids[:5]]
+        suffix = f" + {len(cluster_ids) - 5} more" if len(cluster_ids) > 5 else ""
+        st.caption(f"Linked clusters: {', '.join(names)}{suffix}")
 
     if verbatims:
         st.markdown(f"**{len(verbatims)} supporting reviews:**")

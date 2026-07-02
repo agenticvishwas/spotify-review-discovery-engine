@@ -9,7 +9,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from dashboards.db import fetch_insights, fetch_insight_evidence, clean_description
+from dashboards.db import fetch_insights, fetch_insight_evidence, fetch_clusters, clean_description
 
 st.set_page_config(page_title="Opportunity List", layout="wide")
 st.title("Opportunity List")
@@ -126,4 +126,6 @@ if selected != "(none)":
             st.info("No verbatims stored for this insight. Evidence is in linked clusters.")
 
         if evidence.get("cluster_ids"):
-            st.caption(f"Supporting cluster IDs: {', '.join(evidence['cluster_ids'][:5])}")
+            cluster_label_map = {c["id"]: c.get("label") or c["id"][:8] for c in fetch_clusters()}
+            cluster_names = [cluster_label_map.get(cid, cid[:8]) for cid in evidence["cluster_ids"][:5]]
+            st.caption(f"Supporting clusters: {', '.join(cluster_names)}")
