@@ -1,0 +1,26 @@
+[
+  {
+    "reviewId": "gp_review_001",
+    "userName": "AndroidUser1",
+    "content": "Discover Weekly is incredible. I find new music every single Monday.",
+    "score": 5,
+    "at": "2024-01-15T09:00:00",
+    "reviewCreatedVersion": "8.9.0"
+  },
+  {
+    "reviewId": "gp_review_002",
+    "userName": "AndroidUser2",
+    "content": "The recommendation algorithm is broken. It keeps suggesting the same artists.",
+    "score": 2,
+    "at": "2024-01-14T14:30:00",
+    "reviewCreatedVersion": "8.9.0"
+  },
+  {
+    "reviewId": "gp_review_003",
+    "userName": "AndroidUser3",
+    "content": "Daily Mixes are okay but Discover Weekly is where it shines for discovery.",
+    "score": 4,
+    "at": "2024-01-13T11:00:00",
+    "reviewCreatedVersion": "8.8.0"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "phase": 3,
+  "batch_id": "21ed49a5-769c-4e87-afbb-b9a483f48f39",
+  "run_date": "2026-06-30T00:19:00.395218+00:00",
+  "target_date": "2026-06-29",
+  "duration_seconds": 45753.13,
+  "dry_run": false,
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "prompt_version": "1.3",
+  "totals": {
+    "total_submitted": 2332,
+    "success": 2086,
+    "failed": 108,
+    "skipped": 878,
+    "low_confidence": 246,
+    "total_tokens_used": 934537,
+    "failure_rate": 0.0463
+  },
+  "output_quality": {
+    "avg_confidence_score": 0.6725,
+    "low_confidence_count": 138,
+    "low_confidence_threshold": 0.5,
+    "discovery_friction_rate": 0.4372,
+    "sentiment_distribution": {
+      "positive": 758,
+      "negative": 1296,
+      "neutral": 27,
+      "mixed": 5
+    },
+    "total_tokens_used": 934537
+  }
+}

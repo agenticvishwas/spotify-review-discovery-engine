@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "temperature": 0.05,
+  "max_tokens": 800,
+  "system": "You are a product researcher. Synthesise unmet user needs from Spotify reviews. Format: \"Users need [capability] but currently cannot [outcome]\". Return JSON: {\"results\":[{\"need_index\":1,\"need_statement\":\"...\",\"gap_description\":\"...\",\"related_features\":[\"...\"],\"confidence\":0.0}]}",
+  "user_template": "Synthesise {batch_size} unmet needs. Return exactly {batch_size} results.\n\n{needs_block}"
+}

@@ -1,0 +1,19 @@
+{
+  "batch_id": "d8edc549-2a99-4c82-a96d-d351d9506f9d",
+  "platform": "google_play",
+  "started_at": "2026-06-29T18:11:03.724835+00:00",
+  "query_params": {
+    "enabled": true,
+    "package": "com.spotify.music",
+    "country": "us",
+    "lang": "en",
+    "limit": 5000,
+    "_note": "Set limit to 5000+ and pass --since to cover 4-6 weeks. Early-exit stops pagination once since_date is reached."
+  },
+  "completed_at": null,
+  "total_fetched": 0,
+  "total_valid": 0,
+  "total_rejected": 0,
+  "status": "running",
+  "failure_reason": null
+}

@@ -1,0 +1,31 @@
+{
+  "phase": 1,
+  "batch_id": "bbcbb467-7df0-448c-bc17-d40211b5d773",
+  "run_date": "2026-06-28T20:10:46.865610+00:00",
+  "duration_seconds": 24.433184,
+  "dry_run": false,
+  "platforms": {
+    "app_store": {
+      "fetched": 500,
+      "valid": 500,
+      "rejected": 0,
+      "rejection_reasons": {}
+    },
+    "google_play": {
+      "fetched": 500,
+      "valid": 500,
+      "rejected": 0,
+      "rejection_reasons": {}
+    },
+    "community": {
+      "fetched": 0,
+      "valid": 0,
+      "rejected": 0,
+      "rejection_reasons": {}
+    }
+  },
+  "total_fetched": 1000,
+  "total_valid": 1000,
+  "total_rejected": 0,
+  "error_rate": 0.0
+}

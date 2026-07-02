@@ -1,0 +1,41 @@
+{
+  "run_date": "2026-06-30T17:07:12.160390+00:00",
+  "batch_id": "b0ec78e7",
+  "providers_used": [
+    "ollama"
+  ],
+  "total_clusters_analyzed": 132,
+  "eligible_clusters": 132,
+  "micro_clusters_skipped": 0,
+  "insights_generated": {
+    "product_insights": 137,
+    "opportunities": 0,
+    "jtbd_insights": 60,
+    "problems": 72,
+    "unmet_needs_as_insights": 0,
+    "segment_insights": 5,
+    "jtbd_profiles": 1,
+    "user_segments": 5,
+    "unmet_needs": 0
+  },
+  "top_opportunity_score": 0.5614,
+  "avg_opportunity_score": 0.3403,
+  "avg_confidence_score": 0.4539,
+  "confidence_distribution": {
+    "high": 69,
+    "medium": 1,
+    "low": 67
+  },
+  "low_confidence_insights": 67,
+  "low_confidence_rate": 0.4891,
+  "discovery_related_insights": 16,
+  "trend_distribution": {
+    "increasing": 132,
+    "stable": 5,
+    "decreasing": 0
+  },
+  "quality_flags": [
+    "WARNING: 137 insights have fewer than 3 supporting verbatims. Ensure Phase 3 analyzed_reviews are available for evidence mapping.",
+    "INFO: No unmet needs detected. Reviews may not contain desire-expression patterns."
+  ]
+}

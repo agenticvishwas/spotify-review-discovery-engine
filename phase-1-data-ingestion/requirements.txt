@@ -1,0 +1,20 @@
+# Phase 1 — Data Ingestion Dependencies
+
+# Core HTTP client
+requests>=2.31.0
+
+# Platform connectors
+google-play-scraper>=1.2.2      # Google Play reviews (no auth required)
+praw>=7.7.1                     # Reddit API client (requires API credentials)
+beautifulsoup4>=4.12.0          # Community forum HTML scraping
+lxml>=4.9.0                     # Fast HTML parser for BeautifulSoup
+
+# Schema validation
+pydantic>=2.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-mock>=3.11.0
+
+# Optional: Twitter/X social connector requires a Bearer Token
+# No additional library needed — uses requests against Twitter API v2

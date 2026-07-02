@@ -1,0 +1,14 @@
+{
+  "batch_id": "8e4d6c3d-9d7b-4548-9de8-c51f49bdf634",
+  "source_batch_ids": [
+    "d8edc549-2a99-4c82-a96d-d351d9506f9d"
+  ],
+  "started_at": "2026-06-29T18:37:03.935666+00:00",
+  "completed_at": "2026-06-29T18:37:47.189801+00:00",
+  "total_input": 5500,
+  "total_output": 3210,
+  "filtered_non_english": 2198,
+  "filtered_duplicates": 10,
+  "filtered_low_quality": 711,
+  "status": "completed"
+}

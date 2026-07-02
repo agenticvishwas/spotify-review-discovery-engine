@@ -1,0 +1,53 @@
+{
+  "feed": {
+    "entry": [
+      {
+        "im:name": {"label": "Spotify - Music and Podcasts"},
+        "summary": {"label": "Music streaming app"},
+        "id": {"attributes": {"im:id": "324684580"}}
+      },
+      {
+        "title": {"label": "Discover Weekly is a game changer"},
+        "content": {
+          "label": "I find so many new artists thanks to Discover Weekly. It never gets repetitive."
+        },
+        "im:rating": {"label": "5"},
+        "author": {"name": {"label": "MusicLover42"}},
+        "updated": {"label": "2024-01-15T10:30:00-07:00"},
+        "link": {
+          "attributes": {
+            "href": "https://apps.apple.com/us/review/id324684580?sortBy=mostRecent&type=Purple+Software"
+          }
+        }
+      },
+      {
+        "title": {"label": "Same songs over and over"},
+        "content": {
+          "label": "The algorithm just plays the same 20 songs. No real discovery happening."
+        },
+        "im:rating": {"label": "2"},
+        "author": {"name": {"label": "FrustratedUser99"}},
+        "updated": {"label": "2024-01-14T08:00:00-07:00"},
+        "link": {
+          "attributes": {
+            "href": "https://apps.apple.com/us/review/id324684580?sortBy=mostRecent&type=Purple+Software"
+          }
+        }
+      },
+      {
+        "title": {"label": "Great for new music"},
+        "content": {
+          "label": "Radio and recommendations are spot on. Love discovering indie artists."
+        },
+        "im:rating": {"label": "4"},
+        "author": {"name": {"label": "IndieHeads"}},
+        "updated": {"label": "2024-01-13T15:45:00-07:00"},
+        "link": {
+          "attributes": {
+            "href": "https://apps.apple.com/us/review/id324684580?sortBy=mostRecent&type=Purple+Software"
+          }
+        }
+      }
+    ]
+  }
+}

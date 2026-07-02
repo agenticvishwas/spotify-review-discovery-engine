@@ -1,0 +1,17 @@
+{
+  "batch_id": "d8edc549-2a99-4c82-a96d-d351d9506f9d",
+  "platform": "app_store",
+  "started_at": "2026-06-29T18:10:47.784464+00:00",
+  "query_params": {
+    "enabled": true,
+    "app_id": "324684580",
+    "limit": 500,
+    "_note": "Hard ceiling: iTunes RSS serves max 500 reviews (~3-7 days for Spotify). Run daily to accumulate a multi-week corpus."
+  },
+  "completed_at": null,
+  "total_fetched": 0,
+  "total_valid": 0,
+  "total_rejected": 0,
+  "status": "running",
+  "failure_reason": null
+}

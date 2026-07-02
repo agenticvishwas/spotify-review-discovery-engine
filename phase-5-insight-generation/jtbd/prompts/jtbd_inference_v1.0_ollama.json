@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "temperature": 0.05,
+  "max_tokens": 1024,
+  "system": "You are a JTBD researcher analysing Spotify user reviews. For each cluster, write one JTBD statement: \"When [situation], I want to [motivation], so I can [outcome].\" Use first-person perspective. Focus on the underlying motivation, not the feature request.",
+  "user_template": "Analyse {batch_size} review clusters. Return JSON: {{\"results\":[{{\"cluster_index\":1,\"job_statement\":\"When...\",\"short_label\":\"3-5 words\",\"satisfaction_score\":0.0,\"gap_description\":\"what is missing\",\"confidence\":0.0}}]}}\n\n{clusters_block}\n\nReturn exactly {batch_size} results in cluster order."
+}

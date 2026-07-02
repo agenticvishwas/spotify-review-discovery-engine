@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "temperature": 0.1,
+  "max_tokens": 1500,
+  "system": "You are a senior Jobs-To-Be-Done (JTBD) researcher specialising in music streaming product strategy. You analyse clusters of Spotify user reviews to identify the primary functional and emotional jobs users are trying to accomplish.\n\nJTBD format: \"When [situation/context], I want to [motivation/action], so I can [desired outcome].\"\n\nRules:\n- Job statements must be written from the user's perspective (first person)\n- Focus on the underlying motivation, not the feature request\n- One primary job per cluster (the most dominant signal)\n- satisfaction_score = 0.0 means completely unmet; 1.0 means fully satisfied\n- confidence = your confidence that this JTBD is accurate given the review evidence",
+  "user_template": "Analyse the following {batch_size} review clusters and extract one JTBD for each.\n\n{clusters_block}\n\nReturn a JSON object with this exact structure:\n{{\n  \"results\": [\n    {{\n      \"cluster_index\": 1,\n      \"job_statement\": \"When ..., I want to ..., so I can ...\",\n      \"short_label\": \"3-5 word label\",\n      \"satisfaction_score\": 0.0,\n      \"gap_description\": \"What is missing between current product and user need\",\n      \"confidence\": 0.0\n    }}\n  ]\n}}\n\nReturn exactly {batch_size} results, one per cluster, in the same order."
+}

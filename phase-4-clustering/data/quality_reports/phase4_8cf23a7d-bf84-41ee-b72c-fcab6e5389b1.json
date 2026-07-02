@@ -1,0 +1,33 @@
+{
+  "phase": 4,
+  "batch_id": "8cf23a7d-bf84-41ee-b72c-fcab6e5389b1",
+  "run_date": "2026-06-30T16:29:27.973743+00:00",
+  "target_date": "2026-06-29",
+  "duration_seconds": 108.15,
+  "dry_run": false,
+  "labeling_provider": "groq",
+  "labeling_model": "llama-3.3-70b-versatile",
+  "label_batch_size": 10,
+  "label_concurrency": 1,
+  "totals": {
+    "reviews_input": 2394,
+    "total_clusters": 66,
+    "micro_clusters": 0,
+    "noise_points_before_fallback": 956,
+    "noise_rate": 0.3993,
+    "avg_cluster_size": 36.3,
+    "largest_cluster_size": 267
+  },
+  "labeling_quality": {
+    "avg_confidence": 0.8832,
+    "below_threshold": 1,
+    "confidence_threshold": 0.6
+  },
+  "cluster_signals": {
+    "discovery_related_clusters": 12,
+    "discovery_cluster_rate": 0.1818,
+    "trend_distribution": {
+      "increasing": 66
+    }
+  }
+}

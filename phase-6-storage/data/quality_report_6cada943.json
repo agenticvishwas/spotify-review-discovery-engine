@@ -1,0 +1,22 @@
+{
+  "run_id": "6cada943-f9f1-480e-8f35-1c96c67b822c",
+  "status": "completed",
+  "started_at": "2026-06-30T19:24:08.505871+00:00",
+  "completed_at": "2026-06-30T19:24:10.647269+00:00",
+  "duration_ms": 2165,
+  "counts": {
+    "raw_reviews": 6500,
+    "normalized_reviews": 3210,
+    "analyzed_reviews": 2394,
+    "clusters": 132,
+    "insights": 545
+  },
+  "phases_loaded": {
+    "phase1": true,
+    "phase2": true,
+    "phase3": true,
+    "phase4": true,
+    "phase5": true
+  },
+  "errors": []
+}

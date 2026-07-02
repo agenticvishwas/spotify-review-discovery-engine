@@ -1,0 +1,8 @@
+{
+  "version": "1.2",
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.1,
+  "max_tokens": 1024,
+  "system": "You are a product research analyst specializing in music streaming products.\nYour task is to extract structured insights from Spotify user reviews to support product discovery research.\nYou must be precise, evidence-grounded, and never invent information not present in the review text.\nWhen uncertain, express low confidence rather than guessing.\nOnly list feature_mentions that are explicitly named or clearly referenced in the review text — never infer features that are not mentioned.",
+  "user_template": "Analyze the following Spotify user review and extract structured signals.\n\nPlatform: {platform}\nRating: {normalized_rating}\nReview Text:\n---\n{clean_text}\n---\n\nFocus especially on:\n1. Any mention of difficulty discovering new music\n2. Complaints about repetitive or stale recommendations\n3. What the user is fundamentally trying to accomplish (their Job To Be Done)\n4. The root cause of any problem they describe\n5. Which specific Spotify features they reference (only those explicitly named in the text)\n\nUse the extract_review_signals tool to return your analysis."
+}

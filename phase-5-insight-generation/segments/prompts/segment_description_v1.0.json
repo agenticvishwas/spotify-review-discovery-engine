@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "temperature": 0.1,
+  "max_tokens": 800,
+  "system": "You are a product researcher characterising Spotify user segments from review data. Given statistical signals for a user segment, write a concise behavioural description that a Product Manager can use to empathise with this user type.",
+  "user_template": "User segment: {segment_label}\n\nStatistics:\n- Reviews analysed: {review_count} ({fraction_pct}% of total)\n- Avg sentiment: {avg_sentiment:.2f} (range -1 negative to +1 positive)\n- Discovery friction rate: {friction_rate:.0%}\n- Platform affinity: {platform}\n- Top complaints: {top_complaints}\n- Top praised features: {top_features}\n- Top features mentioned: {top_feature_mentions}\n\nReturn JSON:\n{{\n  \"description\": \"2-3 sentence behavioural characterisation\",\n  \"primary_jtbd\": \"one sentence — the main job this segment is trying to do\",\n  \"primary_pain\": \"one sentence — the main pain this segment experiences\",\n  \"behavioral_signals\": [\"signal 1\", \"signal 2\", \"signal 3\"]\n}}"
+}

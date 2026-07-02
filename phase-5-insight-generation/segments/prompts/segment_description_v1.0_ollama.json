@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "temperature": 0.05,
+  "max_tokens": 512,
+  "system": "You are a product researcher. Given Spotify user segment statistics, write a concise characterisation. Return JSON with keys: description, primary_jtbd, primary_pain, behavioral_signals (array of 3 strings).",
+  "user_template": "Segment: {segment_label} | Reviews: {review_count} ({fraction_pct}%) | Sentiment: {avg_sentiment:.2f} | Friction: {friction_rate:.0%} | Platform: {platform}\nComplaints: {top_complaints}\nPraise: {top_features}\n\nReturn JSON: {{\"description\":\"...\",\"primary_jtbd\":\"...\",\"primary_pain\":\"...\",\"behavioral_signals\":[\"...\",\"...\",\"...\"]}}"
+}

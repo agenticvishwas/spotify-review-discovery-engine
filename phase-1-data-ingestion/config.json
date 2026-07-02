@@ -1,0 +1,32 @@
+{
+  "app_store": {
+    "enabled": true,
+    "app_id": "324684580",
+    "limit": 500,
+    "_note": "Hard ceiling: iTunes RSS serves max 500 reviews (~3-7 days for Spotify). Run daily to accumulate a multi-week corpus."
+  },
+  "google_play": {
+    "enabled": true,
+    "package": "com.spotify.music",
+    "country": "us",
+    "lang": "en",
+    "limit": 5000,
+    "_note": "Set limit to 5000+ and pass --since to cover 4-6 weeks. Early-exit stops pagination once since_date is reached."
+  },
+  "reddit": {
+    "enabled": false,
+    "client_id": "",
+    "client_secret": "",
+    "query": "",
+    "limit": 300
+  },
+  "community": {
+    "enabled": true,
+    "limit": 200
+  },
+  "social": {
+    "enabled": false,
+    "bearer_token": "",
+    "limit": 200
+  }
+}

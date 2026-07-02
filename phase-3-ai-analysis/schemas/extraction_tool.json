@@ -1,0 +1,83 @@
+{
+  "name": "extract_review_signals",
+  "description": "Extract structured product signals from a Spotify user review",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "sentiment": {
+        "type": "string",
+        "enum": ["positive", "negative", "neutral", "mixed"],
+        "description": "Overall sentiment of the review"
+      },
+      "sentiment_score": {
+        "type": "number",
+        "description": "Sentiment intensity from -1.0 (very negative) to 1.0 (very positive)"
+      },
+      "discovery_friction_detected": {
+        "type": "boolean",
+        "description": "True if the review mentions difficulty discovering new music or repetitive recommendations"
+      },
+      "discovery_friction_description": {
+        "type": ["string", "null"],
+        "description": "Direct quote or paraphrase of the discovery friction described, null if none"
+      },
+      "primary_complaint": {
+        "type": ["string", "null"],
+        "description": "The main complaint expressed, null if review is positive"
+      },
+      "primary_praise": {
+        "type": ["string", "null"],
+        "description": "The main praise expressed, null if review is negative"
+      },
+      "feature_mentions": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Specific Spotify features mentioned (e.g., Discover Weekly, Radio, Daily Mix). Only include features explicitly named or clearly referenced in the text."
+      },
+      "jtbd_signal": {
+        "type": ["string", "null"],
+        "description": "What job is the user trying to accomplish? (e.g., 'find new music that matches current mood')"
+      },
+      "user_intent": {
+        "type": ["string", "null"],
+        "description": "What the user wants to achieve beyond the immediate complaint"
+      },
+      "root_cause_signal": {
+        "type": ["string", "null"],
+        "description": "The underlying cause of the problem described, if inferable"
+      },
+      "user_segment_signal": {
+        "type": "string",
+        "enum": ["power_user", "casual", "new", "churned", "unknown"],
+        "description": "Inferred user type based on vocabulary and usage patterns"
+      },
+      "emotion_tags": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": ["frustration", "delight", "confusion", "boredom", "hope", "disappointment"]
+        },
+        "description": "Emotional signals detected in the review"
+      },
+      "listening_behavior_signal": {
+        "type": "string",
+        "enum": ["repetitive", "exploratory", "mood-based", "activity-based", "unknown"],
+        "description": "What listening pattern does the user describe or imply?"
+      },
+      "confidence_score": {
+        "type": "number",
+        "description": "0.0-1.0 confidence in the accuracy of this extraction. Use lower values when the review is ambiguous or when inferences are uncertain."
+      }
+    },
+    "required": [
+      "sentiment",
+      "sentiment_score",
+      "discovery_friction_detected",
+      "user_segment_signal",
+      "listening_behavior_signal",
+      "emotion_tags",
+      "feature_mentions",
+      "confidence_score"
+    ]
+  }
+}

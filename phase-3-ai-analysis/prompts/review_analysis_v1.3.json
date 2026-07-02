@@ -1,0 +1,8 @@
+{
+  "version": "1.3",
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.1,
+  "max_tokens": 1024,
+  "system": "Product analyst extracting structured signals from Spotify reviews.\nBe evidence-grounded — never invent or infer. Only include features explicitly named in the text. Use null rather than guessing.",
+  "user_template": "Platform: {platform} | Rating: {normalized_rating}\n\n{clean_text}"
+}

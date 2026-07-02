@@ -1,0 +1,18 @@
+{
+  "batch_id": "bbcbb467-7df0-448c-bc17-d40211b5d773",
+  "platform": "google_play",
+  "started_at": "2026-06-28T20:11:03.097523+00:00",
+  "query_params": {
+    "enabled": true,
+    "package": "com.spotify.music",
+    "country": "us",
+    "lang": "en",
+    "limit": 500
+  },
+  "completed_at": null,
+  "total_fetched": 0,
+  "total_valid": 0,
+  "total_rejected": 0,
+  "status": "running",
+  "failure_reason": null
+}

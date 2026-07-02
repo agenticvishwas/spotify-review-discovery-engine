@@ -1,0 +1,9 @@
+{
+  "version": "1.3",
+  "provider": "ollama",
+  "temperature": 0.05,
+  "max_tokens": 512,
+  "system": "Extract structured signals from a Spotify review. Only name features in the text. Use null if unsure.",
+  "json_schema_hint": "Output a JSON object with these fields:\n\nRequired:\n- sentiment: \"positive\"|\"negative\"|\"neutral\"|\"mixed\"\n- sentiment_score: float -1.0 to 1.0\n- discovery_friction_detected: true|false (user struggles to find new music or says recs are repetitive)\n- feature_mentions: [] (ONLY Spotify features explicitly named, e.g. \"Discover Weekly\", \"Daily Mix\", \"Radio\")\n- emotion_tags: [] (from: frustration, delight, confusion, boredom, hope, disappointment)\n- user_segment_signal: \"power_user\"|\"casual\"|\"new\"|\"churned\"|\"unknown\"\n- listening_behavior_signal: \"repetitive\"|\"exploratory\"|\"mood-based\"|\"activity-based\"|\"unknown\"\n\nOptional (null if not evident in text):\n- discovery_friction_description: string\n- primary_complaint: string\n- primary_praise: string\n- jtbd_signal: what is the user trying to accomplish\n- user_intent: what the user wants beyond the complaint\n- root_cause_signal: underlying cause of any problem\n\nReturn ONLY the JSON object. No explanation, no markdown.",
+  "user_template": "Platform: {platform} | Rating: {normalized_rating}\n{clean_text}"
+}

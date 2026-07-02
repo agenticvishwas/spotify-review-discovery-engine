@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": "post_001",
+      "title": "Why does Spotify keep playing the same songs?",
+      "selftext": "I have over 500 songs saved but Discover Weekly always shows the same 30. Anyone else experiencing this?",
+      "author": "RedditUser1",
+      "created_utc": 1705312800,
+      "permalink": "/r/spotify/comments/post_001/why_does_spotify/"
+    },
+    {
+      "id": "post_002",
+      "title": "Discover Weekly finally nailed it for me",
+      "selftext": "After months of thumbs up/down, my Discover Weekly is now perfectly tuned to my taste.",
+      "author": "RedditUser2",
+      "created_utc": 1705226400,
+      "permalink": "/r/spotify/comments/post_002/discover_weekly/"
+    }
+  ],
+  "comments": [
+    {
+      "id": "comment_001",
+      "body": "Same issue here. The algorithm needs serious work. It never discovers truly new music.",
+      "author": "CommentUser1",
+      "created_utc": 1705316400,
+      "parent_post_id": "post_001"
+    },
+    {
+      "id": "comment_002",
+      "body": "Try rating songs explicitly. That improved my recommendations dramatically.",
+      "author": "CommentUser2",
+      "created_utc": 1705320000,
+      "parent_post_id": "post_001"
+    }
+  ]
+}

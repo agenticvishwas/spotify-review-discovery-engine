@@ -1,0 +1,16 @@
+{
+  "batch_id": "bbcbb467-7df0-448c-bc17-d40211b5d773",
+  "platform": "app_store",
+  "started_at": "2026-06-28T20:10:47.168674+00:00",
+  "query_params": {
+    "enabled": true,
+    "app_id": "324684580",
+    "limit": 500
+  },
+  "completed_at": null,
+  "total_fetched": 0,
+  "total_valid": 0,
+  "total_rejected": 0,
+  "status": "running",
+  "failure_reason": null
+}
