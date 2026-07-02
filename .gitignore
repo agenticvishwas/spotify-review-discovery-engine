@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Secrets — never commit these
+.env
+.env.*
+secrets.toml
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Phase 5 large intermediate outputs (keep final insights JSONL)
+phase-5-insight-generation/data/embeddings/
+
+# ChromaDB runtime files (empty on cloud; populated locally after pipeline runs)
+phase-6-storage/data/chroma/
+
+# Keep the knowledge base — it's the only data source Phase 7 reads from
+# and at 9.7 MB it fits comfortably in a GitHub repo.
+# !phase-6-storage/data/knowledge_base.db  ← already not ignored; no action needed
