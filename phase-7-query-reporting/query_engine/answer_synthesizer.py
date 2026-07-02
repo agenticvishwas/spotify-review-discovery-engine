@@ -10,21 +10,26 @@ logger = logging.getLogger(__name__)
 _SYSTEM = """\
 You are an internal AI research assistant for a Product Manager at Spotify.
 Answer questions about customer feedback using only the provided evidence.
-Never speculate beyond what the data shows. Return valid JSON only — no markdown fences."""
+Base your answer on the insight titles, descriptions, reasoning, and any quoted reviews given.
+Never add generic disclaimers about missing data types — use what is present and answer directly.
+Return valid JSON only — no markdown fences."""
 
 _PROMPT = """\
 The PM asked: "{question}"
 
-Relevant insights from the knowledge base:
+Relevant insights from the knowledge base (each includes title, description, reasoning, \
+affected segment, and trend direction where available):
 {insights_json}
 
 Supporting customer verbatims:
 {evidence_json}
 
 Answer concisely and accurately.
-- Reference specific evidence; quote reviews where helpful
+- Ground every claim in the insight reasoning or a specific verbatim quote
 - State confidence based on evidence volume and consistency
-- Highlight caveats if data is sparse or ambiguous
+- Set "caveats" to null unless there is a genuine data quality issue \
+(e.g. fewer than 3 supporting data points, or directly contradictory signals). \
+Do NOT caveat just because one evidence type is absent — work with what is present.
 - Do not speculate beyond what the evidence supports
 
 Return ONLY this JSON:
@@ -85,10 +90,13 @@ class AnswerSynthesizer:
 
     def _extract_insights(self, results: dict, max_count: int) -> list[dict]:
         out: list[dict] = []
-        keep = ("id", "title", "description", "confidence_score", "insight_type", "opportunity_score")
+        keep = (
+            "id", "title", "description", "confidence_score", "insight_type",
+            "opportunity_score", "reasoning", "affected_segment", "trend_direction",
+        )
         for step in results.get("steps", []):
             for row in step.get("rows", []):
-                out.append({k: row[k] for k in keep if k in row})
+                out.append({k: row[k] for k in keep if k in row and row[k] is not None})
                 if len(out) >= max_count:
                     return out
         return out

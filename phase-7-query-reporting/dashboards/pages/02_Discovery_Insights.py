@@ -52,7 +52,7 @@ if clusters:
     })
     st.dataframe(df_c, use_container_width=True, hide_index=True)
 
-    selected = st.selectbox("Drill into cluster →", ["(none)"] + [c["label"] for c in clusters])
+    selected = st.selectbox("Drill into cluster →", ["(none)"] + list(dict.fromkeys(c["label"] for c in clusters)))
     if selected != "(none)":
         cluster = next((c for c in clusters if c["label"] == selected), None)
         if cluster:

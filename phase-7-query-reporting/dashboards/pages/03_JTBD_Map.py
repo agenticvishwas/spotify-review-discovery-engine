@@ -59,7 +59,7 @@ if "gap_score" in df.columns and "short_label" in df.columns:
 st.divider()
 
 # ── Drill into a job ──────────────────────────────────────────────────────────
-labels = df["short_label"].tolist() if "short_label" in df.columns else []
+labels = list(dict.fromkeys(df["short_label"].tolist())) if "short_label" in df.columns else []
 selected = st.selectbox("Drill into a job →", ["(none)"] + labels)
 if selected != "(none)":
     row = df[df["short_label"] == selected].iloc[0].to_dict()

@@ -98,6 +98,11 @@ if run and question:
                 if row.get("document"):
                     all_verbatims.append({"verbatim": row["document"], "platform": "vector_result"})
 
+    # If no verbatims surfaced from the plan steps, fall back to high-confidence
+    # friction reviews so the synthesizer always has concrete evidence to quote.
+    if not all_verbatims:
+        all_verbatims = retriever.discovery_friction_verbatims(limit=8)
+
     # ── Answer synthesis ──────────────────────────────────────────────────────
     col_ans, col_ev = st.columns([3, 2])
 

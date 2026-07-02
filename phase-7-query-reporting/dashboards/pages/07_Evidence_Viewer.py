@@ -38,7 +38,7 @@ if mode == "Insight":
     if not show_pending:
         insights = [i for i in insights if not i.get("review_required")]
 
-    titles = [i["title"] for i in insights]
+    titles = list(dict.fromkeys(i["title"] for i in insights))
     selected_title = st.selectbox("Select insight", ["(none)"] + titles)
 
     if selected_title != "(none)":
@@ -97,7 +97,7 @@ else:  # Cluster mode
         st.info("No clusters found. Run Phase 4 first.")
         st.stop()
 
-    labels = [c["label"] for c in clusters]
+    labels = list(dict.fromkeys(c["label"] for c in clusters))
     selected_label = st.selectbox("Select cluster", ["(none)"] + labels)
 
     if selected_label != "(none)":

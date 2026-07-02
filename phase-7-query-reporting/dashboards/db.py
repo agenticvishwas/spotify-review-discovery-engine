@@ -140,14 +140,17 @@ def fetch_jtbd(_db: str | None = None) -> list[dict]:
 @st.cache_data(ttl=300)
 def fetch_segments(_db: str | None = None) -> list[dict]:
     conn = get_connection(_db)
-    sql = "SELECT * FROM user_segments WHERE 1=1"
-    params: list = []
-    cutoff = latest_run_cutoff(conn, "user_segments", "generated_at")
-    if cutoff:
-        sql += " AND generated_at >= ?"
-        params.append(cutoff)
-    sql += " ORDER BY fraction_of_total DESC"
-    return [dict(r) for r in conn.execute(sql, params).fetchall()]
+    # Use latest row per segment_label so an incomplete pipeline re-run
+    # doesn't hide segments that weren't regenerated in that run.
+    rows = conn.execute(
+        """SELECT * FROM user_segments s1
+           WHERE generated_at = (
+               SELECT MAX(s2.generated_at) FROM user_segments s2
+               WHERE s2.segment_label = s1.segment_label
+           )
+           ORDER BY fraction_of_total DESC"""
+    ).fetchall()
+    return [dict(r) for r in rows]
 
 
 @st.cache_data(ttl=60)

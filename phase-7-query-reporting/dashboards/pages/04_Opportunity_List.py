@@ -64,7 +64,7 @@ st.divider()
 
 # ── Evidence drill-down ───────────────────────────────────────────────────────
 st.subheader("Drill into an opportunity")
-titles = [i["title"] for i in all_insights[:50]]
+titles = list(dict.fromkeys(i["title"] for i in all_insights[:50]))
 selected = st.selectbox("Select insight →", ["(none)"] + titles)
 
 if selected != "(none)":
