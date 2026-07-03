@@ -26,27 +26,12 @@ st.set_page_config(
 st.title("Spotify Review Discovery Engine")
 st.caption("Voice of Customer — AI-powered product intelligence for PMs")
 
-# ── Data freshness check ──────────────────────────────────────────────────────
 stats = fetch_overview_stats()
 
-last_run = stats.get("last_successful_run")
-if last_run is None:
+if stats.get("last_successful_run") is None:
     st.warning(
         "No completed pipeline runs found. Run Phases 1–6 to populate the knowledge base."
     )
-else:
-    from datetime import datetime, timezone
-    try:
-        last_dt = datetime.fromisoformat(last_run.replace("Z", "+00:00"))
-        age_h = (datetime.now(timezone.utc) - last_dt).total_seconds() / 3600
-        if age_h > 48:
-            st.error(
-                f"Data Stale — last successful run was {int(age_h)}h ago. Re-run the pipeline."
-            )
-        else:
-            st.success(f"Data fresh — last pipeline run: {last_run[:19]} UTC")
-    except Exception:
-        st.info(f"Last pipeline run: {last_run}")
 
 st.divider()
 
